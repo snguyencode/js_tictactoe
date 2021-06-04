@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    --cell-size: 100px;
+    --mark-size: cal(var(--cell-size) * .9);
+}
+
 body {
     margin: 0;
 }
@@ -11,11 +16,21 @@ body {
     height: 100vh;
     display: grid;
     justify-content: center;
+    justify-items: center;
+    align-items: center;
     align-content: center;
+    grid-template-columns: repeat(3, auto);
 }
 
 .cell {
-    width: 100px;
-    height: 100px;
-    background-color: black;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid black;
 }
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
